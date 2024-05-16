@@ -75,9 +75,18 @@ function switchImg(img) {
   overlays.forEach(function (overlay) {
     overlay.classList.remove("active");
   });
-
+  console.log(img.parentElement)
   // Add 'active' class to the overlay of the clicked image's parent
   img.parentElement.querySelector(".overlay").classList.add("active");
+}
+function mainOverlay(img1) {
+  let mainOverlays = document.querySelectorAll(".main_overlay");
+  mainOverlays.forEach(function (mainOverlay) {
+    mainOverlay.classList.remove("active");
+  });
+  console.log(img1.parentElement)
+  // Add 'active' class to the overlay of the clicked image's parent
+  img1.parentElement.querySelector(".main_overlay").classList.add("active");
 }
 function modalClose() {
   document.querySelector(".img_lightbox").innerHTML = ``;
@@ -88,6 +97,7 @@ function modalClose() {
 document.querySelector(".mob_text").style.display='none';
 const openCart = () => {
   document.querySelector(".mob_cart").classList.add("active_cart");
+  document.querySelector(".mob_cart").style.display='block'; 
   document.querySelector(".mob_text").style.display = "block";
   if (addCart()) {
     document.querySelector(".box").classList.add("active");
@@ -162,3 +172,6 @@ const closeMenu = () => {
   document.querySelector(".menu_mob").classList.remove("menu_bar");
   document.querySelector(".dim_js").style.display = "none";
 };
+const closeMobCart=()=>{
+  document.querySelector(".mob_cart").style.display='none'; 
+}
